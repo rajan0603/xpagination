@@ -9,7 +9,7 @@ function App() {
     fetch("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json")
     .then((response) => response.json())
     .then((res) => setData(res))
-    .catch((error) => console.error("error"))
+    .catch((error) => console.error("Error fetching data: ", error))
   }, []);
 
   const indexOfLastPage = currentPage * 10;
@@ -26,20 +26,24 @@ function App() {
     <div  >
         <h1 className = "App" >Employee Data Table</h1>
         <table className = "center">
-          <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Role</th>
-          </tr>
-          {currentItem.map((info) => (
+          <thead>
             <tr>
-              <td>{info.id}</td>
-              <td>{info.name}</td>
-              <td>{info.email}</td>
-              <td>{info.role}</td>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
             </tr>
-          ))}
+          </thead>
+          <tbody>
+            {currentItem.map((info) => (
+              <tr>
+                <td>{info.id}</td>
+                <td>{info.name}</td>
+                <td>{info.email}</td>
+                <td>{info.role}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
         <div className='btn'>
           <button onClick = {() => handlePageChange(currentPage-1)} disabled = {currentPage===1}>Previous</button>
