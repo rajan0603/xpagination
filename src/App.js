@@ -9,7 +9,7 @@ function App() {
     fetch("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json")
     .then((response) => response.json())
     .then((res) => setData(res))
-    .catch((error) => alert("failed to fatching data: ", error))
+    .catch((error) => alert("failed to fatching data"))
   }, []);
 
   const indexOfLastPage = currentPage * 10;
