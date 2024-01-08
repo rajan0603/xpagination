@@ -6,10 +6,10 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    fetch("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json")
+    fetch("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.jso")
     .then((response) => response.json())
     .then((res) => setData(res))
-    .catch((error) => console.error("Error fetching data: ", error))
+    .catch((error) => alert("failed to fatching data: ", error))
   }, []);
 
   const indexOfLastPage = currentPage * 10;
