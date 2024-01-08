@@ -6,7 +6,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    fetch("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.jso")
+    fetch("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json")
     .then((response) => response.json())
     .then((res) => setData(res))
     .catch((error) => alert("failed to fatching data: ", error))
